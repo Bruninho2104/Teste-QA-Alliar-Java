@@ -1,0 +1,12 @@
+package factory;
+
+import org.openqa.selenium.WebDriver;
+
+public class driver {
+
+	private WebDriver driver;
+	
+	public WebDriver getDriver() {
+		return driver;
+	}
+}

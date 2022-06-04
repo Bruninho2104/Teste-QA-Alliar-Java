@@ -1,0 +1,41 @@
+package tests;
+
+import java.io.IOException;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import metodos.Metodos;
+import pages.OlxHomePage;
+
+public class TestesPesquisa{
+
+	Metodos metodos = new Metodos();
+	OlxHomePage page1 = new OlxHomePage();
+	
+	@Before
+	public void setUp() throws Exception {
+		metodos.abrirNavegador("https://www.olx.com.br");
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		metodos.fecharNavegador();
+	}
+
+	@Test
+	public void testPesquisaValida() throws IOException {
+		metodos.escrever(page1.campoPesquisa, "Bicicleta");
+		metodos.clicar(page1.btnPesquisa);
+		metodos.tirarPrint("pesquisaValida");
+	}
+	
+	@Test
+	public void testPesquisaInvalida() throws IOException {
+		metodos.escrever(page1.campoPesquisa, "@");
+		metodos.clicar(page1.btnPesquisa);
+		metodos.tirarPrint("pesquisaInvalida");
+	}
+
+}

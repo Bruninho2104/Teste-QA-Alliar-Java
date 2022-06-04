@@ -1,0 +1,40 @@
+package metodos;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import factory.Driver;
+
+public class Metodos extends Driver{
+
+	WebDriver driver = getDriver();
+	
+	public void abrirNavegador(String site) {
+		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get(site);
+		driver.manage().window().maximize();
+	}
+	
+	public void fecharNavegador() {
+		driver.close();
+	}
+	
+	public void tirarPrint(String nomePrint) throws IOException {
+		TakesScreenshot print = (TakesScreenshot) driver;
+		File printFile = print.getScreenshotAs(OutputType.FILE);
+		File destFile = new File("./Evidencias/"+nomePrint+".png");
+		FileUtils.copyFile(printFile, destFile);
+	}
+	
+	public void escrever(By el) {
+		
+	}
+}

@@ -1,0 +1,12 @@
+package pages;
+
+import org.openqa.selenium.By;
+
+import factory.Driver;
+
+public class OlxHomePage extends Driver{
+	
+	public By campoPesquisa = By.id("searchtext");
+	
+	public By btnPesquisa = By.xpath("//button[@class='searchSubmitBtn']");
+}

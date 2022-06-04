@@ -1,0 +1,33 @@
+package tests;
+
+import static org.junit.Assert.fail;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import factory.Driver;
+import metodos.Metodos;
+import pages.OlxHomePage;
+
+public class TestesPesquisa extends Driver{
+
+	Metodos metodos = new Metodos();
+	OlxHomePage page1 = new OlxHomePage();
+	
+	@Before
+	public void setUp() throws Exception {
+		abrirNavegador("https://www.olx.com.br");
+		getDriver().manage().window().maximize();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

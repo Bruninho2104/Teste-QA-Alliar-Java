@@ -1,0 +1,10 @@
+package pages;
+
+import org.openqa.selenium.By;
+
+import factory.Driver;
+
+public class OlxHomePage extends Driver{
+	
+	By pesquisa = By.id("searchtext");
+}

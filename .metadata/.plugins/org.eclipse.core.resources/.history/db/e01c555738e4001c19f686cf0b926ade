@@ -1,0 +1,18 @@
+package metodos;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import factory.Driver;
+
+public class Metodos extends Driver{
+
+	//WebDriver driver = getDriver();
+	
+	public void abrirNavegador(String site) {
+		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get(site);
+		getDriver().manage().window().maximize();
+	}
+}

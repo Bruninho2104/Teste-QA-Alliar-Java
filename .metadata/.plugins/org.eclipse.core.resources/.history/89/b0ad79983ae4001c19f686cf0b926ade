@@ -1,0 +1,31 @@
+package metodos;
+
+import java.io.File;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import factory.Driver;
+
+public class Metodos extends Driver{
+
+	WebDriver driver = getDriver();
+	
+	public void abrirNavegador(String site) {
+		System.setProperty("webdriver.chrome.driver", "./Drivers/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get(site);
+		driver.manage().window().maximize();
+	}
+	
+	public void fecharNavegador() {
+		driver.close();
+	}
+	
+	public void tirarPrint() {
+		TakesScreenshot print = (TakesScreenshot) driver;
+		File srcFile = print.getScreenshotAs(OutputType.FILE);
+	}
+}
